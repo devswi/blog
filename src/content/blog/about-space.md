@@ -66,4 +66,4 @@ return result
 
 下面的 Gif 比较了不添加空格、添加普通空格和 `U+2009` 空格的区别。
 
-![Gif](/static/images/thin-space.gif)
+![gif](@assets/images/thin-space.gif)

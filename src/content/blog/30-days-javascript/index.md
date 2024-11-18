@@ -1,7 +1,7 @@
 ---
 title: '#30 Days JavaScript'
 author: swi
-pubDatetime: 2019-05-08T12:00:00.000Z
+pubDatetime: 2019-05-15T00:57:00.000Z
 featured: false
 draft: false
 tags:

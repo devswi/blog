@@ -20,7 +20,7 @@ draft: false
 pnpm install nativewind tailwindcss react-native-reanimated react-native-safe-area-context
 ```
 
-执行 `pnpm tailwindcss init` 新建 `tailwindcss.config.js` 或者手动创建 `tailwindcss.config.ts`，这里我自己手动创建了 typescript 配置文件。
+执行 `pnpm tailwindcss init` 新建 `tailwind.config.js` 或者手动创建 `tailwind.config.ts`，这里我自己手动创建了 typescript 配置文件。
 
 ```typescript
 import type { Config } from 'tailwindcss';

@@ -24,6 +24,7 @@
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
     "satori": "^0.11.0",
+    "sharp": "0.33.5",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3"
   },
@@ -46,5 +47,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript-eslint": "^8.5.0"
-  }
+  },
+  "packageManager": "pnpm@9.14.4+sha1.64b6e81e79630419b675c555ef3b65607cfd6315"
 }

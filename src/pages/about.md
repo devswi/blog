@@ -15,6 +15,6 @@ I am learning **golang** and _react native_ and focus on some interesting stuff.
   - Golang (Learning...)
 - Frameworks
   - React
-  - VueJs
+  - Vue
 - Tools
   - Vim/Neovim

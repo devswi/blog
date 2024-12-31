@@ -1,5 +1,6 @@
 import { LOCALE, SITE } from '@config';
 import type { CollectionEntry } from 'astro:content';
+import dayjs from 'dayjs';
 
 interface DatetimesProps {
   pubDatetime: string | Date;
@@ -61,23 +62,16 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
 
-  const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  const date = dayjs(myDatetime).locale(LOCALE.lang).format('MMM D, YYYY');
 
-  // const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  // });
+  const time = dayjs(myDatetime).locale(LOCALE.lang).format('HH:mm');
 
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
-      {/* <span aria-hidden="true"> | </span> */}
-      {/* <span className="sr-only">&nbsp;at&nbsp;</span> */}
-      {/* <span className="text-nowrap">{time}</span> */}
+      <span aria-hidden="true"> | </span>
+      <span className="sr-only">&nbsp;at&nbsp;</span>
+      <span className="text-nowrap">{time}</span>
     </>
   );
 };

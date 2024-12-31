@@ -1,11 +1,11 @@
 ---
 title: 自定义转场动画
 author: swi
-pubDatetime: 2020-06-10
+pubDatetime: 2020-06-10T20:45:00.000+08:00
 featured: false
 draft: false
 tags:
-  - ios
+  - iOS
 ogImage: ''
 description: ''
 ---

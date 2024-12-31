@@ -1,7 +1,7 @@
 ---
 title: Redux 笔记
 author: swi
-pubDatetime: 2023-02-13T00:00:00.000Z
+pubDatetime: 2023-02-13T20:45:00.000+08:00
 featured: true
 draft: false
 tags:
@@ -13,7 +13,7 @@ description: 了解 Redux 的基本概念，记录 Redux 的学习笔记
 
 ## Redux 是什么
 
-**[Redux](https://redux.js.org/)是通过 actions 事件，管理与更新应用状态的工具**。换一种说法就是，在某个地方统一管理整个应用的状态数据，避免了状态/事件等在组件之间来回传递的尴尬局面。举个例子：
+**[Redux](https://redux.js.org/) 是通过 actions 事件，管理与更新应用状态的工具**。换一种说法就是，在某个地方统一管理整个应用的状态数据，避免了状态/事件等在组件之间来回传递的尴尬局面。举个例子：
 
 ![redux-notes](@assets/images/redux/redux-notes-old.png)
 
@@ -105,7 +105,7 @@ const App = ({ children }: AppProps) => {
 };
 ```
 
-### 创建 Redux 切片(slices) 与 actions
+### 创建 Redux 切片 (slices) 与 actions
 
 首先，定义 Todo 任务的数据结构包含如下字段
 
@@ -379,7 +379,7 @@ export const fetchTodos = createAsyncThunk<Todo[]>(
 
 > _server_ 项目对跨域没有做任何处理，这里也就成功的触发了跨域，跨域不在本文的讨论范围之内，快速解决一下，详情还是参考 [MDN 官方文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 吧
 
-注意 `createAsyncThunk` 的第一个参数，这个参数可以等价的认为是 **actions** 的 _type_ ，当数据被请求时，开发工具里会显示以这个参数作为前缀的事件类型，如下图
+注意 `createAsyncThunk` 的第一个参数，这个参数可以等价的认为是 **actions** 的 _type_，当数据被请求时，开发工具里会显示以这个参数作为前缀的事件类型，如下图
 
 ![redux-async-thunk](@assets/images/redux/redux-async-thunk.png)
 
@@ -462,3 +462,4 @@ export const selectAllTodos = (state: RootState) => {
 ## 总结
 
 至此，跟着官方文档，对 Redux 有了个简单了解。对 Redux 的认知再也不是过去 React 的 **Context** 配合 **useReducer** 等于 Redux。Redux 不仅仅只是通过全局 Store 管理应用程序状态的简单工具，而更像是配合 React 一起协作的生态。[redux-toolkit](https://github.com/reduxjs/redux-toolkit) 提供的 `createStore`/`createSlice`/`createAsyncThunk` 等方法以及 [react-redux](https://github.com/reduxjs/react-redux) 提供的一些 hook 简化了 Redux 的使用成本。同时我们也在 [ttask](https://github.com/shiwei93/ttask) 的 web 子项目中做了实践，不过还只是文档做的简单功能，一定存在更加高级且便利的用法，以后在继续学习补充吧。
+

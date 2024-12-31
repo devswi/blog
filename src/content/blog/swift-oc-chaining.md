@@ -1,6 +1,6 @@
 ---
 title: Swift & Objective-C 中的链式调用
-pubDatetime: 2018-08-06T12:00:00Z
+pubDatetime: 2018-08-06T00:18:00+08:00
 tags:
   - swift
   - objective-c
@@ -114,3 +114,4 @@ link.say(@"Hello");
 ```
 
 这样就可以使用链式调用了 `meet.say(@"Nice to meet you").to(@"Jerry").greet;`
+

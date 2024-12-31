@@ -1,13 +1,11 @@
 ---
-title: '理解 RunLoop'
-pubDatetime: 2020-01-20T12:00:00Z
+title: 理解 RunLoop
+pubDatetime: 2020-01-20T20:20:00.000+08:00
 tags:
-  - ios
+  - iOS
 description: 从源码出发，整理巩固 Runloop 的知识点
 draft: false
 ---
-
-# 理解 RunLoop
 
 前几天和同事讨论问题，讨论到 RunLoop 时，发现这个基础概念已经快忘光了，这两天趁着需求完结的空档，整理重温一下。下面的源码来源于 [Apple Source Browser CF-1153.18][1]。
 
@@ -21,7 +19,7 @@ RunLoop 从字面直译**运行循环**，摘录苹果官方的[介绍][2]
 
 如果没有 RunLoop 线程在执行完自己的任务之后就会退出，如果希望在当前任务执行完毕线程不会退出，就需要一个**合理的死循环**让线程常驻。这样的机制被称为 [Event Loop][3]。这种机制并不是 Mac OSX 和 iOS 系统特有的，在绝大多数的系统框架都运用这一优良设计。
 
-在 OSX 和 iOS 系统中，RunLoop 就是一个对象，两个系统的基础框架中提供两个这样的对象: NSRunLoop 和 CFRunLoopRef。
+在 OSX 和 iOS 系统中，RunLoop 就是一个对象，两个系统的基础框架中提供两个这样的对象：NSRunLoop 和 CFRunLoopRef。
 
 - CFRunLoopRef 是在 CoreFoundation 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。
 - NSRunLoop 是基于 CFRunLoopRef 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。
@@ -192,7 +190,7 @@ SInt32 CFRunLoopRunInMode(CFStringRef modeName, CFTimeInterval seconds, Boolean 
 
 简单整理翻译下，画个流程图
 
-![][image-2]
+![flow-chart][image-2]
 
 实际执行 RunLoop 的源码行数过多，直接看容易懵逼，所以删减一些，保留一些关键步骤加上一些注释。
 
@@ -234,7 +232,7 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
     __CFRunLoopDoBlocks(rl, rlm);
 
   // 4. Fire any non-port-based input sources that are ready to fire.
-    // RunLoop 触发 Source0 (非port) 回调。
+    // RunLoop 触发 Source0 (非 port) 回调。
     Boolean sourceHandledThisLoop = __CFRunLoopDoSources0(rl, rlm, stopAfterHandle);
     // 执行被加入的 Blocks
     if (sourceHandledThisLoop) {
@@ -324,3 +322,4 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
 [5]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html#//apple_ref/doc/uid/10000057i-CH16-SW23
 [image-1]: @assets/images/runloop-struct.png
 [image-2]: @assets/images/runloop.png
+

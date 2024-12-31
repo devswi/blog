@@ -208,7 +208,7 @@ extension Person {
 
 ### Remove all arranged subviews in UIStackView
 
-使用 UIStackView 时，如果需要移除 arranged view，UIKit 提供了 `func removeArrangedSubview(_ view: UIView)`，每次只能移除一个。查阅[官方文档](https://developer.apple.com/documentation/uikit/uistackview/1616235-removearrangedsubview)　发现一个 Discussion
+使用 UIStackView 时，如果需要移除 arranged view，UIKit 提供了 `func removeArrangedSubview(_ view: UIView)`，每次只能移除一个。查阅[官方文档](https://developer.apple.com/documentation/uikit/uistackview/1616235-removearrangedsubview) 发现一个 Discussion
 
 > **Discussion** This method removes the provided view from the stack’s [arrangedSubviews](https://developer.apple.com/documentation/uikit/uistackview/1616232-arrangedsubviews) array. The view’s position and size will no longer be managed by the stack view. However, this method does not remove the provided view from the stack’s [subviews](https://developer.apple.com/documentation/uikit/uiview/1622614-subviews) array; therefore, the view is still displayed as part of the view hierarchy.
 >
@@ -297,3 +297,4 @@ extension String {
 #### 易用性
 
 简单易用就不多做说明了，写 Extension 不就是为了方便使用嘛？
+

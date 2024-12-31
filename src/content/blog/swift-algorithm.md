@@ -1,6 +1,6 @@
 ---
 title: '【译】Swift 算法 - 哈希表'
-pubDatetime: 2018-08-22T12:00:00Z
+pubDatetime: 2018-08-22T23:11:00+08:00
 tags:
   - algorithm
   - translation
@@ -82,7 +82,7 @@ naiveHash("bca") // 输出 294
 多把钥匙可以打开同一把锁！这并不好。一点点努力就可以让哈希函数有一个本质的提升。在 playground 中添加如下代码：
 
 ```swift
-// 来源: https://gist.github.com/kharrison/2355182ac03b481921073c5cf6d77a73#file-country-swift-L31
+// 来源：https://gist.github.com/kharrison/2355182ac03b481921073c5cf6d77a73#file-country-swift-L31
 func djb2Hash(_ string: String) -> Int {
   let unicodeScalars = string.unicodeScalars.map { Int($0.value) }
   return unicodeScalars.reduce(5381, {
@@ -284,3 +284,4 @@ public mutating func removeValue(for key: Key) -> Value? {
 ```
 
 实现方法和 `update` 方法类似。第一步检测值是否在桶数组中。如果存在则移除键，`count` 做减 1 操作。如果值不存在，则返回 `nil`。
+

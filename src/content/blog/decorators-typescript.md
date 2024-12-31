@@ -1,6 +1,6 @@
 ---
 title: Typescript decorators 装饰器
-pubDatetime: 2023-02-03T12:00:00Z
+pubDatetime: 2023-02-03T21:12:00+08:00
 tags:
   - nodejs
   - typescript
@@ -319,7 +319,7 @@ function Controller(basePath: string, ...middlewares: Middleware[]) {
 }
 ```
 
-内部实现非常简单，就是将传递的参数，作为类的两个新属性(类似 class 默认的 `name` 属性)
+内部实现非常简单，就是将传递的参数，作为类的两个新属性 (类似 class 默认的 `name` 属性)
 
 ### Http 请求方法的实现
 

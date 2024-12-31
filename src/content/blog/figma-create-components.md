@@ -1,6 +1,6 @@
 ---
 title: '在 figma 中创建组件'
-pubDatetime: 2024-12-31T13:40:00+08:00
+pubDatetime: 2024-12-31T20:43:00+08:00
 tags: ['design', 'notes']
 description: 查阅 Figma 文档，学习如何在 Figma 中创建组件
 featured: true

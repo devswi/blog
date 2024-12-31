@@ -1,6 +1,11 @@
 import { LOCALE, SITE } from '@config';
 import type { CollectionEntry } from 'astro:content';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 interface DatetimesProps {
   pubDatetime: string | Date;
@@ -62,9 +67,11 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
 
-  const date = dayjs(myDatetime).locale(LOCALE.lang).format('MMM D, YYYY');
+  const tz = dayjs(myDatetime).tz('Asia/Shanghai');
 
-  const time = dayjs(myDatetime).locale(LOCALE.lang).format('HH:mm');
+  const date = tz.locale(LOCALE.lang).format('MMM D, YYYY');
+
+  const time = tz.locale(LOCALE.lang).format('HH:mm [UTC]Z');
 
   return (
     <>

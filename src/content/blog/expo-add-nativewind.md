@@ -1,6 +1,6 @@
 ---
 title: 在 Expo 项目中使用 nativewind
-pubDatetime: 2024-11-19T15:58:00Z
+pubDatetime: 2024-11-19T23:58:00+08:00
 tags:
   - react-native
   - notes
@@ -81,4 +81,3 @@ module.exports = withNativeWind(config, { input: './global.css' });
 ```
 
 重启项目，就可以在项目中愉快的使用 tailwindcss 了。
-

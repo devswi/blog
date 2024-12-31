@@ -1,6 +1,6 @@
 ---
 title: 使用 Canvas 绘制仪表盘
-pubDatetime: 2021-10-31T12:00:00.000Z
+pubDatetime: 2021-10-31T23:10:00.000+08:00
 tags:
   - animation
   - canvas
@@ -74,3 +74,4 @@ for (let i = 0; i <= lines; i++) {
 `Core Graphics` 提供了配套的执行动画方式，Canvas 就没有这么幸运了。好在之前处理 Web 平滑滚动时，了解到 `window.requestAnimationFrame` 可以用于处理定时循环操作。在仪表盘上同理，就实现示例中的仪表盘动画了。源码可以查看文章开头的 Codepen。
 
 > Q: `requestAnimationFrame` 和 `requestIdleCallback` 的区别在哪？哪个函数在屏幕重绘前调用？哪个又在之后调用？这一系列问题，后面有时间，咱们细聊
+

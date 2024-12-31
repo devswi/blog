@@ -1,6 +1,6 @@
 ---
 title: 使用 dotdrop 管理 dotfiles
-pubDatetime: 2022-09-19T12:00:00Z
+pubDatetime: 2022-09-19T11:20:00+08:00
 tags:
   - tools
 draft: false

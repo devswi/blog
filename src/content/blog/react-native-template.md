@@ -1,6 +1,6 @@
 ---
 title: 'Custom React Native Template'
-pubDatetime: 2022-11-24T12:00:00Z
+pubDatetime: 2022-11-24T23:37:00+08:00
 tags:
   - react-native
 description: The template of React Native which include typescript is good enough, but it's complicated to config prettier, eslint, etc every time. So I need to make a template which contains the basic configuration used during my daily development.
@@ -36,4 +36,3 @@ Full template source code is [here](https://github.com/devswi/react-native-templ
 ```bash
 npx react-native init YourProjectName --template @swizm/react-native-template
 ```
-

@@ -1,6 +1,6 @@
 ---
 title: Typescript decorators 装饰器
-pubDatetime: 2023-02-03T12:00:00Z
+pubDatetime: 2023-02-03T21:12:00+08:00
 tags:
   - nodejs
   - typescript

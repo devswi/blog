@@ -1,6 +1,6 @@
 ---
 title: 中西文中间添加 Thin space U+2009
-pubDatetime: 2019-06-20T12:00:00Z
+pubDatetime: 2019-06-20T16:40:00+08:00
 tags:
   - iOS
 draft: false
@@ -67,4 +67,3 @@ return result
 下面的 Gif 比较了不添加空格、添加普通空格和 `U+2009` 空格的区别。
 
 ![gif](@assets/images/thin-space.gif)
-

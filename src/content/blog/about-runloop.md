@@ -1,6 +1,6 @@
 ---
 title: 理解 RunLoop
-pubDatetime: 2020-01-20T12:20:00.000Z
+pubDatetime: 2020-01-20T20:20:00.000+08:00
 tags:
   - iOS
 description: 从源码出发，整理巩固 Runloop 的知识点
@@ -322,3 +322,4 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
 [5]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html#//apple_ref/doc/uid/10000057i-CH16-SW23
 [image-1]: @assets/images/runloop-struct.png
 [image-2]: @assets/images/runloop.png
+

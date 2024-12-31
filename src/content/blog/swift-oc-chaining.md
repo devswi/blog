@@ -114,3 +114,4 @@ link.say(@"Hello");
 ```
 
 这样就可以使用链式调用了 `meet.say(@"Nice to meet you").to(@"Jerry").greet;`
+

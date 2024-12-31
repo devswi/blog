@@ -7,7 +7,7 @@ description: The template of React Native which include typescript is good enoug
 draft: false
 ---
 
-When I use the offical template which recommend in the React Native doc, I have some trouble with it. Such as the version of ruby is different with recommended verison and I have to config prettier, eslint, etc every time.
+When I use the official template which recommend in the React Native doc, I have some trouble with it. Such as the version of ruby is different with recommended version and I have to config prettier, eslint, etc every time.
 
 Ideal React or React Native project template need to contain basic configuration as below:
 
@@ -25,9 +25,9 @@ The template I made include the following configurations:
    - `@react-navigation/native` and `@react-navigation/native-stack` for navigating between screens.
    - `react-native-safe-area-context`
    - `react-native-gesture-handler` is used to handle user gesture
-   - `react-native-reanimated`, this is an elegant animation libray in React Native
+   - `react-native-reanimated`, this is an elegant animation library in React Native
 4. Move Gemfile into iOS folder
-5. Update ruby version to `2.7.6`, [Offical Ruby version](https://github.com/facebook/react-native/blob/main/template/_ruby-version)
+5. Update ruby version to `2.7.6`, [Official Ruby version](https://github.com/facebook/react-native/blob/main/template/_ruby-version)
 
 Full template source code is [here](https://github.com/devswi/react-native-template-swi/tree/main/template)
 
@@ -36,3 +36,4 @@ Full template source code is [here](https://github.com/devswi/react-native-templ
 ```bash
 npx react-native init YourProjectName --template @swizm/react-native-template
 ```
+

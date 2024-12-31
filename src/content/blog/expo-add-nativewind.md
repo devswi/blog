@@ -8,7 +8,7 @@ description: 记录下在 Expo 项目中使用 nativewind 遇到的问题
 draft: false
 ---
 
-在日常开发 React 或 Vue 项目时，我都经常使用 [tailwindcss](https://tailwindcss.com/) 来快速搭建 UI。最近**再次**开始了学习 React Native 的旅程，我们可以借助于 [nativewind](https://nativewind.dev/)，在 React Native 中使用 tailwindcss。不过今天在参考 [nativewind 官方文档](https://www.nativewind.dev/getting-started/expo-router) 配置 nativewind 时却遇到了几个让我困惑的地方，这篇笔记就记录下我遇到的问题。
+在日常开发 React 或 Vue 项目时，我都使用 [tailwindcss](https://tailwindcss.com/) 来快速搭建 UI。最近**再次**开始了学习 React Native 的旅程，在 React Native 项目中借助 [nativewind](https://nativewind.dev/)，就可以继续愉快的使用 tailwindcss。不过今天在参考 [nativewind 官方文档](https://www.nativewind.dev/getting-started/expo-router) 配置 nativewind 时却遇到了几个让我困惑的地方，这篇笔记就记录下我遇到的问题。
 
 ## 新的 Expo 项目
 
@@ -47,7 +47,7 @@ export default {
 
 到这里我就开始尝试在页面中使用 `className` 来编写样式了，但发现并没有生效。查看 nativewind 文档时，第三步 `Add the Babel preset` 时，发现按上面的步骤新建的 Expo 项目并没有 `babel.config.js` 就人为跳过了。
 
-> 教训：多看文档别跳过!
+> 教训：多看文档别跳过！
 
 回到 [Expo 文档](https://docs.expo.dev/versions/latest/config/babel/) 关于 babel 配置说明，有如下一段话
 
@@ -81,3 +81,4 @@ module.exports = withNativeWind(config, { input: './global.css' });
 ```
 
 重启项目，就可以在项目中愉快的使用 tailwindcss 了。
+

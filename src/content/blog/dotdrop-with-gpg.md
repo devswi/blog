@@ -7,7 +7,7 @@ draft: false
 description: 记录我是如何使用 dotdrop 管理 dotfiles 配置
 ---
 
-> 已经使用 chezmoi 代替 dotdrop 了!
+> 已经使用 chezmoi 代替 dotdrop 了！
 
 我用 [dotdrop](https://github.com/deadc0de6/dotdrop) 来管理 [dotfiles](https://github.com/shiwei93/dotfiles)，不过没有对敏感配置做处理，例如 ssh，kube 配置。dotdrop 本身支持使用 [GPG](https://www.gnupg.org/) 对敏感配置进行加密处理。
 

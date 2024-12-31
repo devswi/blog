@@ -81,3 +81,4 @@ module.exports = withNativeWind(config, { input: './global.css' });
 ```
 
 重启项目，就可以在项目中愉快的使用 tailwindcss 了。
+

@@ -1,7 +1,6 @@
 import { LOCALE, SITE } from '@config';
 import type { CollectionEntry } from 'astro:content';
 import dayjs from 'dayjs';
-import 'dayjs/locale/zh-CN';
 
 interface DatetimesProps {
   pubDatetime: string | Date;

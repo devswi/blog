@@ -3,7 +3,7 @@ title: '实现平滑圆角'
 pubDatetime: 2025-01-02T19:58:00+08:00
 tags:
   - design
-description: 这是第一次尝试翻译英文 blog，用词不当的地方还请见谅。
+description: 上一篇文章学习了如何在 figma 中实现组件化，这一篇来看看如何实现小米新 logo 类似的平滑圆角
 draft: false
 featured: true
 ---

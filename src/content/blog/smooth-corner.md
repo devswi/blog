@@ -1,9 +1,8 @@
 ---
 title: '实现平滑圆角'
-pubDatetime: 2025-01-02T20:33:00+08:00
+pubDatetime: 2025-01-02T19:58:00+08:00
 tags:
   - design
-  - css
 description: 这是第一次尝试翻译英文 blog，用词不当的地方还请见谅。
 draft: false
 featured: true

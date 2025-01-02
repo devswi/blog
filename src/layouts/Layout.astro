@@ -34,6 +34,8 @@ const socialImageURL = new URL(
   Astro.url.origin
 ).href;
 
+const isDev = import.meta.env.DEV;
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -110,10 +112,16 @@ const structuredData = {
       type="application/ld+json"
       set:html={JSON.stringify(structuredData)}
     />
-    <script
-      defer
-      src="https://cloud.umami.is/script.js"
-      data-website-id="6ad2916a-6cf2-443d-996d-22b0542f7146"></script>
+
+    {
+      !isDev && (
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="6ad2916a-6cf2-443d-996d-22b0542f7146"
+        />
+      )
+    }
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -2,7 +2,6 @@
 title: Redux 笔记
 author: swi
 pubDatetime: 2023-02-13T20:45:00.000+08:00
-featured: true
 draft: false
 tags:
   - notes
@@ -462,4 +461,3 @@ export const selectAllTodos = (state: RootState) => {
 ## 总结
 
 至此，跟着官方文档，对 Redux 有了个简单了解。对 Redux 的认知再也不是过去 React 的 **Context** 配合 **useReducer** 等于 Redux。Redux 不仅仅只是通过全局 Store 管理应用程序状态的简单工具，而更像是配合 React 一起协作的生态。[redux-toolkit](https://github.com/reduxjs/redux-toolkit) 提供的 `createStore`/`createSlice`/`createAsyncThunk` 等方法以及 [react-redux](https://github.com/reduxjs/react-redux) 提供的一些 hook 简化了 Redux 的使用成本。同时我们也在 [ttask](https://github.com/shiwei93/ttask) 的 web 子项目中做了实践，不过还只是文档做的简单功能，一定存在更加高级且便利的用法，以后在继续学习补充吧。
-

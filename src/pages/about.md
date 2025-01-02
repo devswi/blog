@@ -3,18 +3,20 @@ layout: ../layouts/AboutLayout.astro
 title: 'Hi there 👋'
 ---
 
-My name is Shi Wei, you can call me swi. I am a web front-end and iOS application developer from China. Dream of becoming a full-stack developer.
+My name is Shi Wei, but you can call me _Swi_. I am a front-end and mobile application developer from China. My dream is to become a full-stack engineer.
 
-I am learning **golang** and _react native_ and focus on some interesting stuff.
+Currently, I’m learning Golang and React Native while experimenting with some interesting projects.
 
 ## Skills Summary
 
 - Languages
-  - Javascript/Typescript
-  - Swift/Objective-C
+  - Typescript/Javascript
+  - Swift
   - Golang (Learning...)
 - Frameworks
   - React
   - Vue
 - Tools
-  - Vim/Neovim
+  - [Neovim](https://neovim.io/) with [LazyVim](https://www.lazyvim.org/)
+  - [Kitty](https://github.com/kovidgoyal/kitty)
+  - [Tmux](https://github.com/tmux/tmux/wiki)

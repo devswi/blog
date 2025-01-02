@@ -1,13 +1,13 @@
 import type { Site, SocialObjects } from './types';
 
 export const SITE: Site = {
-  website: 'https://blog-swiswi.vercel.app/', // replace this with your deployed domain
+  website: 'https://blog.swiswi.me/', // replace this with your deployed domain
   author: 'swi',
   profile: '',
   desc: '',
   title: 'Swi',
   lightAndDarkMode: true,
-  postPerIndex: 5,
+  postPerIndex: 8,
   postPerPage: 8,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,

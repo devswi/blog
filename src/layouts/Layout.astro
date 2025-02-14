@@ -1,7 +1,7 @@
 ---
-import { LOCALE, SITE } from "@config";
-import "@styles/base.css";
-import { ViewTransitions } from "astro:transitions";
+import { LOCALE, SITE } from '@config';
+import '@styles/base.css';
+import { ViewTransitions } from 'astro:transitions';
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -30,22 +30,22 @@ const {
 } = Astro.props;
 
 const socialImageURL = new URL(
-  ogImage ?? SITE.ogImage ?? "og.png",
+  ogImage ?? SITE.ogImage ?? 'og.png',
   Astro.url.origin
 ).href;
 
 const isDev = import.meta.env.DEV;
 
 const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
   headline: `${title}`,
   image: `${socialImageURL}`,
   datePublished: `${pubDatetime?.toISOString()}`,
   ...(modDatetime && { dateModified: modDatetime.toISOString() }),
   author: [
     {
-      "@type": "Person",
+      '@type': 'Person',
       name: `${author}`,
       url: `${profile}`,
     },
@@ -56,7 +56,7 @@ const structuredData = {
 <!doctype html>
 <html
   lang=`${LOCALE.lang ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
+  class={`${scrollSmooth && 'scroll-smooth'}`}
 >
   <head>
     <meta charset="UTF-8" />

@@ -9,7 +9,7 @@ export interface Props {
 
 const {
   href,
-  className = "",
+  className = '',
   ariaLabel,
   title,
   disabled = false,
@@ -19,7 +19,7 @@ const {
 {
   disabled ? (
     <span
-      class:list={["group inline-block", className]}
+      class:list={['group inline-block', className]}
       title={title}
       aria-disabled={disabled}
     >
@@ -28,7 +28,7 @@ const {
   ) : (
     <a
       {href}
-      class:list={["group inline-block hover:text-skin-accent", className]}
+      class:list={['group inline-block hover:text-skin-accent', className]}
       aria-label={ariaLabel}
       title={title}
     >

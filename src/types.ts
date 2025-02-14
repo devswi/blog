@@ -1,4 +1,4 @@
-import type socialIcons from "@assets/socialIcons";
+import type socialIcons from '@assets/socialIcons';
 
 export type Site = {
   website: string;
@@ -13,7 +13,7 @@ export type Site = {
   scheduledPostMargin: number;
   showArchives?: boolean;
   editPost?: {
-    url?: URL["href"];
+    url?: URL['href'];
     text?: string;
     appendFilePath?: boolean;
   };

@@ -134,3 +134,153 @@ func (e DictionaryErr) Error() string {
 ```
 
 上面的代码片段，只要自定义的 `DictionaryErr` 类型（本质上是个 string）实现了 error 的 `Error` 方法，`DictionaryErr` 就可以认为是 error 类型了，不需要显示声明非常方便！
+
+## Goroutine
+
+Goroutine 是 Go 语言中的一种轻量级线程，让程序在同一个地址空间中同时执行多个任务。具有如下优势
+
+- **轻量**：比操作系统线程更轻量
+- **语法简洁**：使用 `go` 关键字启动
+- **自动调度**：Go 运行时自动调度并管理 Goroutine
+
+## Channels
+
+Channels 通常与 goroutine 一起使用，用于在并发中多个 goroutine 之间进行通信。Channels 是类型安全的，可以传递指定类型的数据。
+
+```go
+func add(a, b int, resultChan chan int) {
+    result := a + b
+    resultChan <- result // send
+}
+
+func main() {
+    resultChan := make(chan int) // 创建一个无缓冲 channel
+
+    go add(3, 5, resultChan) // 启动一个 goroutine 执行加法
+
+    result := <-resultChan // 从 channel 接收结果
+    fmt.Println("Result:", result)
+}
+```
+
+### 带缓冲的 channels
+
+通过 `make(chan int)` 创建无缓冲的 channels，通过 `make` 函数的第二个参数创建带缓冲的 channel。来看下面的例子
+
+```go
+func producer(id int, ch chan string) {
+    fmt.Printf("Producer %d: producing task\n", id)
+    ch <- fmt.Sprintf("Task from producer %d", id) // 生产任务
+    fmt.Printf("Producer %d: task produced\n", id)
+}
+
+func main() {
+    ch := make(chan string) // Unbuffered Channel
+
+    // 启动 3 个生产者
+    for i := 1; i <= 3; i++ {
+        go producer(i, ch)
+    }
+
+    // 给 goroutine 足够的时间执行
+    time.Sleep(6 * time.Second)
+}
+```
+
+当创建的 Channel 为 Unbuffered Channel 时，上面的例子只生产不消费，执行的结果为
+
+```txt
+❯ go run main.go
+Producer 2: producing task
+Producer 3: producing task
+Producer 1: producing task
+All tasks are processed
+```
+
+没有消费者接收产物，会导致生产者阻塞，不会输出 _Producer xx: task produced_
+
+当我们使用带缓冲的 Channel 时，情况会有所不同。让我们修改上面的代码，将 Channel 改为带缓冲的：
+
+```go
+ch := make(chan string, 2) // Buffered Channel with capacity 2
+```
+
+现在，即使没有消费者，生产者也能继续执行，直到缓冲区被填满。这是因为带缓冲的 Channel 在缓冲区有空间时不会阻塞发送操作。打印的结果如下 (每次执行的结果可能会不一致，但设置缓冲区大小为 2 的话，只会打印两条 _Producer xx: task produced_)
+
+```txt
+❯ go run main.go
+Producer 1: producing task
+Producer 2: producing task
+Producer 3: producing task
+Producer 3: task produced
+Producer 2: task produced
+All tasks are processed
+```
+
+## Select
+
+Select 可以同时监听多个 channel，并根据哪个 channel 首先接收到数据来执行相应的操作。文中的例子为比较两个 URL 的响应时间。在 goroutine 中使用 http 库请求 URL，在访问成功之后发送结果，select 则负责返回首先接收到消息的 channel。
+
+```go
+func Racer(a, b string) (winner string) {
+    select {
+    case <-ping(a):
+        return a
+    case <-ping(b):
+        return b
+    }
+}
+
+func ping(url string) chan struct{} {
+    ch := make(chan struct{})
+    go func() {
+        http.Get(url)
+        close(ch)
+    }()
+    return ch
+}
+```
+
+## **Reflect**
+
+反射是 Go 语言中一个非常强大的概念，可以在运行时检查变量的类型和结构，甚至可以动态地操作变量的值。reflect 允许程序动态地操作 Go 类型系统，但通常会带来一定的性能开销。
+
+### 主要类型
+
+- `reflect.Type` Go 类型的解构，包含类型信息
+- `reflect.Value` 一个 Go 变量的值，可以动态读取和修改变量的值
+
+下面表格中列举的两个方法的返回值都是 `reflect.Value` 我任务这也是使用 reflect 的开端
+
+| **方法**          | **说明**     |
+| ----------------- | ------------ |
+| reflect.TypeOf()  | 获取变量类型 |
+| reflect.ValueOf() | 获取变量的值 |
+
+### `reflect.Value` 的方法
+
+| 方法           | 描述                                                                             |
+| -------------- | -------------------------------------------------------------------------------- |
+| `Bool()`       | 获取 `reflect.Value` 的布尔值（`bool` 类型）。                                   |
+| `Int()`        | 获取 `reflect.Value` 的整数值（`int`, `int8`, `int16`, `int32`, `int64` 类型）。 |
+| `String()`     | 获取 `reflect.Value` 的字符串值（`string` 类型）。                               |
+| `Interface()`  | 将 `reflect.Value` 转换为其对应的接口类型（`interface{}`）。                     |
+| `SetInt()`     | 设置 `reflect.Value` 的整数值。                                                  |
+| `Elem()`       | 获取 `reflect.Value` 的元素值，通常用于指针类型的值。                            |
+| `Field(i int)` | 获取结构体字段的值，`i` 是字段的索引。                                           |
+| `Type()`       | 获取 `reflect.Value` 的类型，返回一个 `reflect.Type`。                           |
+| `Kind()`       | 获取 `reflect.Value` 的类型类别，返回一个 `reflect.Kind`。                       |
+| `Len()`        | 获取切片、数组、字符串或通道的长度。                                             |
+| `Cap()`        | 获取切片或数组的容量。                                                           |
+
+方法太多了就不一一列举了，需要注意的是，大多数方法的注释都有说明，如果类型不正确调用该方法，会导致 panic 报错。例如 `NumField` 方法
+
+**NumField returns the number of fields in the struct v. It panics if v's Kind is not \[Struct].**
+
+所以，reflect 虽然强大，但不能滥用，真正需要使用的时候需要多多关注类型再进行操作。同时，反射的滥用也会导致代码的理解和维护变得复杂。
+
+### `reflect.DeepEqual`
+
+`reflect.DeepEqual` 在这本书里经常出现，单元测试代码中无论是比较 slice 还是 map 都用到这个方法，不过从 Go 1.18 开始可以用 `slices.Equal` 代替它比较 slice，Go 1.21 开始使用 `maps.Equal` 代替它比较 map。
+
+`reflect.DeepEqual` 可以说是一个通用的解决方案，它会检查每个字段、每个元素，无论是数组、切片、映射，还是其他数据类型。这使得它非常强大，但也相对的开销比较大。而专有方法通常会进行内部优化，因此特定的数据解构比较还是使用专有方法比较靠谱。

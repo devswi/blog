@@ -1,33 +1,33 @@
 ---
-import { getCollection } from "astro:content";
-import Card from "@components/Card";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import { SITE } from "@config";
-import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
+import { getCollection } from 'astro:content';
+import Card from '@components/Card';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import { SITE } from '@config';
+import Layout from '@layouts/Layout.astro';
+import Main from '@layouts/Main.astro';
+import getPostsByGroupCondition from '@utils/getPostsByGroupCondition';
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 
-const posts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = await getCollection('blog', ({ data }) => !data.draft);
 
 const MonthMap: Record<string, string> = {
-  "1": "January",
-  "2": "February",
-  "3": "March",
-  "4": "April",
-  "5": "May",
-  "6": "June",
-  "7": "July",
-  "8": "August",
-  "9": "September",
-  "10": "October",
-  "11": "November",
-  "12": "December",
+  '1': 'January',
+  '2': 'February',
+  '3': 'March',
+  '4': 'April',
+  '5': 'May',
+  '6': 'June',
+  '7': 'July',
+  '8': 'August',
+  '9': 'September',
+  '10': 'October',
+  '11': 'November',
+  '12': 'December',
 };
 ---
 

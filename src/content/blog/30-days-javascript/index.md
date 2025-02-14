@@ -48,4 +48,3 @@ description: 从 iOS 到前端，30 天学习 JavaScript
 - [Day30 - Whack A Mole Game](https://github.com/shiwei93/JavaScript30/tree/master/30%20-%20Whack%20A%20Mole%20Game)
 
 项目[完整地址](https://github.com/shiwei93/JavaScript30)
-

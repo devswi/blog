@@ -3,11 +3,13 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import astroParser from 'astro-eslint-parser';
 import eslintPluginAstro from 'eslint-plugin-astro';
+import gitignore from 'eslint-config-flat-gitignore';
 
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  gitignore(),
   {
     languageOptions: {
       globals: {

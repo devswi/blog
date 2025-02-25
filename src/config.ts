@@ -39,7 +39,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: 'X',
-    href: 'https://x.com/swmagicswift',
+    href: 'https://x.com/devswi_swi',
     linkTitle: `${SITE.title} on X`,
     active: true,
   },

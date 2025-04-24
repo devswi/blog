@@ -3,7 +3,7 @@ title: '读 Learn Go with tests 笔记'
 pubDatetime: 2025-02-10T22:12:00+08:00
 tags: ['golang', 'notes']
 description: ''
-featured: true
+featured: false
 draft: false
 ---
 

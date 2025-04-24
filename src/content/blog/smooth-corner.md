@@ -5,7 +5,7 @@ tags:
   - design
 description: 上一篇文章学习了如何在 figma 中实现组件化，这一篇来看看如何实现小米新 logo 类似的平滑圆角
 draft: false
-featured: true
+featured: false
 ---
 
 小米的新 logo 从之前的一眼圆角变为看起来胖胖的圆角，下图中左边为新 logo，右边为旧的 logo。

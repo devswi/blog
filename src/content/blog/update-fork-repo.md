@@ -1,5 +1,5 @@
 ---
-title: '更新 frok 的 Git 仓库'
+title: '更新 fork 的 Git 仓库'
 pubDatetime: 2018-08-05T12:00:00+08:00
 tags:
   - git

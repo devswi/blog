@@ -7,13 +7,11 @@ draft: false
 description: ''
 ---
 
-新开了一个练手的 Golang 项目在鉴权时，使用了 session + 双 token 的方案。开发阶段，虽然 access_token 的有效期设置了 2h，但是无法避免 access_token 过期需要手动调用刷新 token 的接口。在与 AI 沟通的过程中，给我提供了通过 Pre-request 实现自动刷新的方案。
-
-在 AI 与官方文档的双重加持下，实现了自动调用更新 token 的 API。
+新开了一个练手的 Golang 项目，在鉴权时，使用了 session + 双 token 的方案。开发阶段，虽然 access_token 的有效期设置了 2h，但是无法避免 access_token 过期需要手动调用刷新 token 的接口。在与 AI 沟通的过程中，给我提供了通过 Pre-request 实现自动刷新的方案。在 AI 与官方文档的双重加持下，简单实现了自动调用更新 token 的 API。
 
 项目的方案 access_token 是在登录完成之后返回，而 session_id 会由后端直接写入 cookie 中。对于前端调用 `/auth/refresh-token` 接口，传参是无感的。
 
-因此在 Postman 中，Pre-request 无法像浏览器一样自动同步 cookie，因此需要在 Domains Allowlist 页面中添加 Host，另外借助 Postman 提供的 `pm.cookies.jar()` 中异步获取 cookie，并手动添加到请求的 cookie 中。
+但是在 Postman 中，Pre-request 无法像浏览器一样自动同步 cookie，因此需要在 Domains Allowlist 页面中添加 Host，另外借助 Postman 提供的 `pm.cookies.jar()` 异步获取 cookie，并手动添加到请求的 cookie 中。
 
 ![allowlist](@assets/images/allowlist.png)
 
